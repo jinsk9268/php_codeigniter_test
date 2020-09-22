@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- <header>
+    <h1>고객센터</h1>
+    <p>궁금하진 점은 문의주시면 친절히 답변 드리겠습니다</p>
+    <nav>
+      <div>
+        <div>카카오톡 문의</div>
+        <div>1:1 문의</div>
+        <div>공지사항 목록</div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>FAQ</h1>
+  </main> -->
+  <h2>Add React in One Minute</h2>
+  <p>This page demonstrates using React with no build tooling.</p>
+  <p>React is loaded as a script tag.</p>
+
+  <p>
+    This is the first comment.
+    <!-- We will put our React component inside this div. -->
+    <div class="like_button_container" data-commentid="1"></div>
+  </p>
+
+  <p>
+    This is the second comment.
+    <!-- We will put our React component inside this div. -->
+    <div class="like_button_container" data-commentid="2"></div>
+  </p>
+
+  <p>
+    This is the third comment.
+    <!-- We will put our React component inside this div. -->
+    <div class="like_button_container" data-commentid="3"></div>
+  </p>
+
+  <p>
+    This is the 4 comment.
+    <!-- We will put our React component inside this div. -->
+    <div class="like_button_container" data-commentid="4"></div>
+  </p>
+
+  <p>
+    This is the 5 comment.
+    <!-- We will put our React component inside this div. -->
+    <div class="like_button_container" data-commentid="5"></div>
+  </p>
+
+  <style>
+    .div-container {
+      background-color: aquamarine;
+    }
+
+    .btn-ex {
+      background-color: pink;
+    }
+  </style>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <!-- Load our React component. -->
+  <script>
+    'use strict';
+
+    const e = React.createElement;
+
+    class LikeButton extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { liked: false };
+      }
+
+      render() {
+        console.log(this.state.liked)
+        return this.state.liked 
+          ? e(
+              'div',
+              {className: 'div-container'},
+              [
+                e('button',
+                  {className: 'btn-ex', 
+                    onClick: () => this.setState({ liked: !this.state.liked }),
+                    key: this.props.commentID
+                  },
+                  'unLike'),
+                e('p',  
+                  {key: this.props.commentID + 'p',
+                    className: 'p-ex'
+                  }, 
+                  'You liked comment number ' + this.props.commentID)
+              ]
+            )
+          : e(
+              'button',
+              { onClick: () => this.setState({ liked: !this.state.liked }) },
+              'Like'
+            );
+      }
+    }
+
+    // Find all DOM containers, and render Like buttons into them.
+    document.querySelectorAll('.like_button_container')
+      .forEach(domContainer => {
+        // Read the comment ID from a data-* attribute.
+        const commentID = parseInt(domContainer.dataset.commentid, 10);
+        ReactDOM.render(
+          e(LikeButton, { commentID: commentID }),
+          domContainer
+        );
+      });
+  </script>
+</body>
+</html>

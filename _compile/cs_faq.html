@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- use react -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- css start -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+        list-style: none;
+      }
+
+      .faq-header {
+        margin: 20px 15px 0;
+      }
+
+      #faq-header-title {
+        font-size: 24px;
+        line-height: 48px;
+        font-weight: bold;
+      }
+
+      #faq-main-container {
+        margin: 10px 15px;
+      }
+
+      .faq-section-container {
+
+      }
+
+      .faq-search-container {
+        position: relative;
+      }
+
+      #faq-search-icon {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+        padding: 5px;
+        border-right: 1px solid rgba(174, 163, 151, 1);
+        color: rgba(174, 163, 151, 1);
+      } 
+      
+      #faq-search-input {
+        padding: 8px 15px 8px 37px;
+        width: 100%;
+        border: 1px solid rgba(174, 163, 151, 1);
+        border-radius: 20px;
+        font-size: 15px;
+      }
+
+      #faq-search-input:focus {
+        outline: 0;
+        border-radius: 20px;
+      }
+
+      .faq-nav-container {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+
+      .faq-nav-filter-container {
+        position: relative;
+        padding: 10px 10px 4px;
+        width: 40%;
+        border-radius: 5px 5px 0 0;
+        background: pink;
+      }
+
+      .faq-filter-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px 6px 4px;
+        background: #bfbfbf;
+        border-radius: 5px;
+        font-size: 13px;
+      }
+
+      .faq-filter-list {
+        position: absolute;
+        top: 120.075x;
+        left: 0;
+        padding: 6px 10px 4px;
+        width: 100%;
+        border-radius: 0 0 5px 5px;
+        background: skyblue;
+      }
+
+      .faq-filter-list-li {
+        margin: 6px 0;
+        padding: 3px 6px 4px;
+        background: #bfbfbf;
+        border-radius: 5px;
+        font-size: 13px;
+      }
+    </style>
+
+    <!-- html start -->
+    <header class="faq-header">
+      <h1 id="faq-header-title">FAQ</h1>
+    </header>
+    <main id="faq-main-container"></main>
+    <!-- faq section -->
+
+    <!-- faq react start -->
+    <script type="text/babel">
+      "use strict";
+
+      class FAQmain extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+
+          };
+        }
+
+        render() {
+          return(
+            <section className="faq-section-container">
+              <div className="faq-search-container">
+                <i className="fa fa-search" id="faq-search-icon"></i>
+                <input id="faq-search-input" type="text" placeholder="자주묻는 질문(FAQ) 검색"/>
+              </div>
+              <nav className="faq-nav-container">
+                <div className="faq-nav-filter-container">
+                  <div className="faq-filter-main">
+                    <span>FAQ 전체</span>
+                    <i className="fa fa-chevron-down"></i>
+                  </div>
+                  <ul className="faq-filter-list">
+                    <li className="faq-filter-list-li">FAQ 전체</li>
+                    <li className="faq-filter-list-li">주문 및 제작</li>
+                    <li className="faq-filter-list-li">주문 변경/취소</li>
+                    <li className="faq-filter-list-li">배송 확인</li>
+                    <li className="faq-filter-list-li">교환 및 A/S</li>
+                    <li className="faq-filter-list-li">주얼리 정보</li>
+                    <li className="faq-filter-list-li">이용 방법</li>
+                  </ul>
+                </div>
+              </nav>
+              <section>
+                <article>
+                  <header>
+                    <div>
+                      <div>분류</div>
+                      <div>
+                        <i className="fa fa-chevron-down"></i>
+                      </div>
+                    </div>
+                    <h4>FAQ 제목</h4>
+                  </header>
+                  <main>
+                    <p>
+                      반지 호수를 측정하는 가장 정확한 방법은 [링 게이지]를 통해 측정하는 방법 입니다.
+                      <br /><br />
+                      캔버스에서는 2019년 11월 새로 규격화된 KS 규격 링 게이지를 웹 페이지에서 판매하고 있으며, 구매하신 금액은 모두 적립금으로 고객님께 환급 되어, 제품 구매 시 해당 금액만큼 할인을 받으실 수 있습니다.
+                      링 게이지 구매를 원하시는 분들께서는 아래 링크를 통해 제품을 구매해 주세요. 링 게이지를 통해 정확하게 측정하는 방법을 추천 드립니다.
+                      <br /><br />
+                      https://m.canvasrings.com/goods/view?no=252&texture=wg&stone=wt
+                      <br /><br />
+                      KS 규격 링 게이지가 아닌 링 게이지를 사용하시는 경우에는 캔버스에서 제공하는 호수와는 차이가 있을 수 있으니 이 점 참고 부탁 드립니다.
+                      <br /><br />
+                      이외에도 종이를 이용하여 임시로 측정할 수 있는 방법도 있습니다.
+                      이 방법은 종이의 두께 및 폭, 측정하는 사람에 따라 측정값이 크게 달라질 수 있기 때문에 가급적 사용하지 않기를 권장 드립니다.
+                      <br /><br />
+                      다만, 링 게이지를 통한 손가락 호수 측정이 어려우신 분들께서는 본 방법을 통해 호수 측정 후 제품을 구매해주시고, 사이즈 변경이 필요한 경우에는 캔버스에서 제공하는 무료 호수 교환 서비스를 이용해 주세요.
+                      <br /><br />
+                      [종이를 이용한 호수 측정법]<br />
+                      1. 종이를 일정 폭으로 잘라주세요.<br />
+                      2. 자른 종이를 손가락에 감아주세요.<br />
+                      3. 감은 종이의 윗부분과 아랫부분이 만나는 점을 펜으로 표시해 주세요.<br />
+                      4. 펜으로 표시한 종이의 길이를 자로 측정해 주시고, 해당 길이를 호수 사이즈 표에서 찾아주시면 됩니다.<br /><br />
+                      본 방법은 정확성이 떨어지기 때문에, 여러번 측정 후 그 평균값으로 제품을 구매해주세요.<br />
+                      폭이 1cm 이상인 제품을 구매해주시는 경우에는 평소 착용하시는 사이즈보다 0.5호수 크게 주문해주시기를 권장 드립니다.
+                      <br /><br />
+                      반지 폭이 커질수록, 제품이 손가락과 맞닿는 면적이 넓어져 정사이즈로 구매 시 착용감이 다소 작게 느껴질 수 있습니다.
+                    </p>
+                  </main>
+                </article> 
+              </section>
+              <div>
+                <ul>
+                  <li>1</li>
+                  <li>2</li>
+                </ul>
+              </div>
+            </section>
+          );
+        }
+      }
+
+      ReactDOM.render(<FAQmain />, document.querySelector("#faq-main-container"));
+    </script>
+  </body>
+</html>
